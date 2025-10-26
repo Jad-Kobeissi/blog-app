@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  --background: #0a0a0a;
+  --foreground: #d9d9d9;
+  --secondary-text: #999999;
+  --secondary-background: #1a1a1a;
+}
+@theme {
+  --breakpoint-md: 990px;
+}
+
+body,
+html {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.navLink {
+  @apply font-semibold rounded-3xl hover:font-bold transition-all duration-400;
+}
