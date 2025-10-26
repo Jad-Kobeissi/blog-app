@@ -7,6 +7,7 @@ import "highlight.js/styles/atom-one-dark.css";
 import hljs from "highlight.js";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
+import Article from "@/app/Article";
 
 export default function ArticlePage({
   params,
@@ -45,34 +46,9 @@ export default function ArticlePage({
   }, [article]);
 
   return (
-    <div className="flex flex-col items-center justify-center mt-[10vh] gap-4">
-      {article?.cover_image && (
-        <img
-          src={article?.cover_image as string}
-          alt="Cover Image"
-          className="w-160"
-        />
-      )}
-      <div className="flex items-center gap-2">
-        <img
-          src={article?.user.profile_image_90}
-          alt="Profile Picture"
-          className="rounded-full "
-        />
-        <h1 className="text-[1.3rem]">{article?.user.name}</h1>
-      </div>
-      <h1 className="font-bold text-[2.3rem] text-center">{article?.title}</h1>
-      <div className="flex justify-center items-center w-fit">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: article?.body_html as string,
-          }}
-          ref={articleRef}
-          className="flex text-left flex-col w-1/2 article"
-        />
-      </div>
-
+    <>
+      <Article article={article as TArticleSpecific} className="mt-[10vh]" />
       {error && <Error error={error} />}
-    </div>
+    </>
   );
 }

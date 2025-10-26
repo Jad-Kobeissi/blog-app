@@ -34,7 +34,8 @@ pre > code {
 .article > h1 {
   @apply text-[1.4rem] font-bold;
 }
-.article > h2 {
+.article > h2,
+h3 {
   @apply text-[1.2rem] font-semibold;
 }
 .article > ul {
