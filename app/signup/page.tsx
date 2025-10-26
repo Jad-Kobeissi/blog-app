@@ -22,7 +22,7 @@ export default function Signup() {
               password,
             })
             .then((res) => {
-              router.push("/news");
+              router.push("/articles");
               setUser(res.data.user);
               setCookie("token", res.data.token);
             })

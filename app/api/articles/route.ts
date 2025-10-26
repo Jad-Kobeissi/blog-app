@@ -1,4 +1,4 @@
-import { Article } from "@/app/types";
+import { TArticle } from "@/app/types";
 import axios from "axios";
 import { decode, verify } from "jsonwebtoken";
 import { prisma } from "../init";
@@ -13,7 +13,7 @@ export async function GET(req: Request) {
     const decoded: any = await decode(authHeader);
     const url = new URL(req.url);
     const page = parseInt(url.searchParams.get("page") as string) || 1;
-    let articles: Article[] = [];
+    let articles: TArticle[] = [];
 
     await axios
       .get(

@@ -2,14 +2,14 @@
 import { useEffect, useState } from "react";
 import { UseUser } from "../contexts/UserContext";
 import { useRouter } from "next/navigation";
-import { Article } from "../types";
+import { TArticle } from "../types";
 import axios from "axios";
 import { getCookie } from "cookies-next";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loading from "../Loading";
 export default function News() {
   const [page, setPage] = useState(1);
-  const [articles, setArticles] = useState<Article[]>([]);
+  const [articles, setArticles] = useState<TArticle[]>([]);
   const [error, setError] = useState("");
   const [hasMore, setHasMore] = useState<boolean>(true);
   const { user } = UseUser();
@@ -32,7 +32,7 @@ export default function News() {
   };
   useEffect(() => {
     if (!localStorage.getItem("user")) {
-      router.push("/news/guest");
+      router.push("/articles/guest");
       return;
     }
 
@@ -52,6 +52,7 @@ export default function News() {
           <div
             className="max-[490px]:w-screen w-[30rem] h-fit"
             key={article.id}
+            onClick={() => router.push(`/articles/${article.id}`)}
           >
             <h1>{article.id}</h1>
             <div className="flex items-center gap-2">
@@ -64,10 +65,12 @@ export default function News() {
                 {article.user.username}
               </h1>
             </div>
-            <img
-              src={article.social_image as string}
-              alt="Article cover image"
-            />
+            {article.cover_image && (
+              <img
+                src={article.cover_image as string}
+                alt="Article cover image"
+              />
+            )}
             <h1>{article.title}</h1>
             <p>{article.description}</p>
           </div>

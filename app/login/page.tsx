@@ -28,7 +28,7 @@ export default function Login() {
             .then((res) => {
               setUser(res.data.user);
               setCookie("token", res.data.token);
-              router.push("/news");
+              router.push("/articles");
             })
             .catch((err) => {
               setError(err.response.data);

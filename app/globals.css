@@ -23,3 +23,26 @@ html {
 .navLink {
   @apply font-semibold rounded-3xl hover:font-bold transition-all duration-400;
 }
+
+.highlight__panel.js-actions-panel {
+  display: none !important;
+}
+pre > code {
+  @apply rounded-sm w-fit p-4;
+}
+
+.article > h1 {
+  @apply text-[1.4rem] font-bold;
+}
+.article > h2 {
+  @apply text-[1.2rem] font-semibold;
+}
+.article > ul {
+  @apply list-disc pl-8;
+}
+hr {
+  @apply py-[1rem];
+}
+a {
+  @apply underline;
+}
