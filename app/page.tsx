@@ -8,26 +8,46 @@ function Nav() {
       <Link href={"#home"} className="md:text-[1.5rem] text-[1.2rem] font-bold">
         BlogApp
       </Link>
-      <div className="h-fit flex md:gap-7 gap-4 text-(--secondary-text) items-center">
-        <div>
-          <Link href={"#home"} className="navLink">
+      <div className="h-fit flex md:gap-7 gap-4 text-(--secondary-text) items-center ">
+        <div className="group relative">
+          <Link
+            href={"#home"}
+            className="navLink"
+            style={{ textDecoration: "none" }}
+          >
             Home
           </Link>
+          <span className="w-0 h-0.5 absolute left-0 bottom-0 bg-(--secondary-text) group-hover:w-full group-active:w-full transition-all duration-300"></span>
         </div>
-        <div>
-          <Link href={"#about"} className="navLink">
+        <div className="relative group">
+          <Link
+            href={"#about"}
+            className="navLink"
+            style={{ textDecoration: "none" }}
+          >
             About
           </Link>
+          <span className="w-0 h-0.5 absolute left-0 bottom-0 bg-(--secondary-text) group-hover:w-full group-active:w-full transition-all duration-300"></span>
         </div>
-        <div>
-          <Link href={"/news"} className="navLink">
+        <div className="relative group">
+          <Link
+            style={{ textDecoration: "none" }}
+            href={"/news"}
+            className="navLink"
+          >
             News
           </Link>
+          <span className="w-0 h-0.5 absolute left-0 bottom-0 bg-(--secondary-text) group-hover:w-full group-active:w-full transition-all duration-300"></span>
         </div>
-        <div>
-          <Link href={"#contact"} className="navLink">
+        <div className="relative group">
+          <Link
+            href={"#contact"}
+            className="navLink"
+            style={{ textDecoration: "none" }}
+          >
             Contact
           </Link>
+          <span className="w-0 h-0.5 absolute left-0 bottom-0 bg-(--secondary-text) group-hover:w-full group-active:w-full transition-all duration-300"></span>
         </div>
       </div>
     </nav>
