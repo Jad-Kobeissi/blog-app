@@ -81,7 +81,21 @@ function Home() {
           This blog introduces a tech blog website that shares the latest news,
           reviews, and insights about technology.
         </p>
-        <div></div>
+        <div className="flex gap-4 items-center">
+          <Link
+            href={"/signup"}
+            className="w-fit text-[1.2rem] bg-(--brand-color) px-4 py-2 rounded-md font-bold"
+          >
+            Get Started Now
+          </Link>
+          <h1 className="text-[1.2rem] font-bold">OR</h1>
+          <Link
+            href={"/login"}
+            className="w-fit h-fit px-5 py-2 bg-[#0c0c0c] rounded-md font-bold"
+          >
+            LogIn
+          </Link>
+        </div>
       </div>
       <div className="md:w-1/2 w-screen">
         <img

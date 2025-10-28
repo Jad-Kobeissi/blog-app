@@ -6,20 +6,25 @@ import { UseUser } from "../contexts/UserContext";
 import { setCookie } from "cookies-next";
 import Error from "../Error";
 import Link from "next/link";
+import Loading from "../Loading";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
   const { setUser } = UseUser();
-  return (
+  return loading ? (
+    <Loading className="w-screen h-screen flex items-center justify-center" />
+  ) : (
     <div>
       <form
         className="flex flex-col items-center justify-center h-screen gap-4"
         onSubmit={(e) => {
           e.preventDefault();
           setError("");
+          setLoading(true);
           axios
             .post("/api/login", {
               username,
@@ -32,6 +37,7 @@ export default function Login() {
             })
             .catch((err) => {
               setError(err.response.data);
+              setLoading(false);
             });
         }}
       >
@@ -40,7 +46,7 @@ export default function Login() {
           Log In to Explore the Best from Dev.to
         </p>
         {error && <Error error={error} />}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3">
           <div className="flex flex-col">
             <label htmlFor="username">Username</label>
             <input
@@ -61,13 +67,13 @@ export default function Login() {
               id="password"
             />
           </div>
-          <div className="relative group">
-            <Link href={"/signup"}>Dont have An Account? SignUp Here</Link>
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full bg-[#d9d9d9] transition-all duration-200"></span>
-          </div>
           <button className="bg-[#3471eb] w-full py-1 font-bold rounded-md text-[1.2rem]">
             LogIn
           </button>
+          <div className="relative group w-fit">
+            <Link href={"/signup"}>Dont have An Account? SignUp Here</Link>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full bg-[#d9d9d9] transition-all duration-200"></span>
+          </div>
         </div>
       </form>
     </div>

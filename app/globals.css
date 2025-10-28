@@ -9,6 +9,7 @@ html {
   --foreground: #d9d9d9;
   --secondary-text: #999999;
   --secondary-background: #1a1a1a;
+  --brand-color: #337291;
 }
 @theme {
   --breakpoint-md: 990px;
