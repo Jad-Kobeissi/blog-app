@@ -44,6 +44,3 @@ h3 {
 hr {
   @apply py-[1rem];
 }
-a {
-  @apply underline;
-}

@@ -35,35 +35,40 @@ export default function Login() {
             });
         }}
       >
-        <h1 className="text-[2rem] font-bold text-center">LogIn</h1>
+        <h1 className="text-[3rem] font-bold text-center">LogIn</h1>
+        <p className="text-(--secondary-text)">
+          Log In to Explore the Best from Dev.to
+        </p>
         {error && <Error error={error} />}
-        <div className="flex flex-col">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Username"
-            className="bg-(--secondary-background) px-6 rounded-md py-2"
-          />
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-col">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Username"
+              className="bg-(--secondary-background) px-16 rounded-md py-2"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              className="bg-(--secondary-background) px-16 rounded-md py-2"
+              id="password"
+            />
+          </div>
+          <div className="relative group">
+            <Link href={"/signup"}>Dont have An Account? SignUp Here</Link>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full bg-[#d9d9d9] transition-all duration-200"></span>
+          </div>
+          <button className="bg-[#3471eb] w-full py-1 font-bold rounded-md text-[1.2rem]">
+            LogIn
+          </button>
         </div>
-        <div className="flex flex-col">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-            className="bg-(--secondary-background) px-6 rounded-md py-2"
-            id="password"
-          />
-        </div>
-        <div className="relative group">
-          <Link href={"/signup"}>Dont have An Account? SignUp Here</Link>
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full bg-[#d9d9d9] transition-all duration-200"></span>
-        </div>
-        <button className="bg-[#3471eb] px-4 py-1 font-bold rounded-md text-[1.2rem]">
-          LogIn
-        </button>
       </form>
     </div>
   );
