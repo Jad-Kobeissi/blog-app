@@ -5,7 +5,11 @@ import { motion } from "motion/react";
 function Nav() {
   return (
     <nav className="flex justify-between items-center w-screen fixed py-2 px-4 z-50 bg-background h-fit md:gap-0 gap-2">
-      <Link href={"#home"} className="md:text-[1.5rem] text-[1.2rem] font-bold">
+      <Link
+        href={"#home"}
+        className="md:text-[1.5rem] text-[1.2rem] font-bold "
+        style={{ textDecoration: "none" }}
+      >
         BlogApp
       </Link>
       <div className="h-fit flex md:gap-7 gap-4 text-(--secondary-text) items-center ">
