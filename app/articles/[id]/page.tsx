@@ -7,7 +7,7 @@ import "highlight.js/styles/atom-one-dark.css";
 import hljs from "highlight.js";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
-import Article from "@/app/Article";
+import Article from "@/app/ArticleComp";
 
 export default function ArticlePage({
   params,

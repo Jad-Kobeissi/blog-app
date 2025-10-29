@@ -36,10 +36,10 @@ function Nav() {
         <div className="relative group">
           <Link
             style={{ textDecoration: "none" }}
-            href={"/news"}
+            href={"/articles/guest"}
             className="navLink"
           >
-            News
+            Articles
           </Link>
           <span className="w-0 h-0.5 absolute left-0 bottom-0 bg-(--secondary-text) group-hover:w-full group-active:w-full transition-all duration-300"></span>
         </div>
@@ -81,7 +81,7 @@ function Home() {
           This blog introduces a tech blog website that shares the latest news,
           reviews, and insights about technology.
         </p>
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-4 items-center justify-center md:justify-start">
           <Link
             href={"/signup"}
             className="w-fit text-[1.2rem] bg-(--brand-color) px-4 py-2 rounded-md font-bold"

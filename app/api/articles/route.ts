@@ -39,6 +39,8 @@ export async function GET(req: Request) {
 
     return Response.json(articles);
   } catch (error: any) {
+    console.log(error);
+
     return new Response(error, { status: 500 });
   }
 }
