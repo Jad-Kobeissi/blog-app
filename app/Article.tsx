@@ -1,10 +1,19 @@
 import { useRouter } from "next/navigation";
 import { TArticle } from "./types";
-
+import { motion } from "motion/react";
+import { useInView } from "react-intersection-observer";
 export default function Article({ article }: { article: TArticle }) {
   const router = useRouter();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
   return (
-    <div
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: -20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.2 }}
       className="max-[490px]:w-screen w-[30rem] h-fit bg-[#0c0c0c] rounded-md px-4 py-3"
       key={article.id}
       onClick={() => router.push(`/articles/${article.id}`)}
@@ -22,6 +31,6 @@ export default function Article({ article }: { article: TArticle }) {
       )}
       <h1>{article.title}</h1>
       <p>{article.description}</p>
-    </div>
+    </motion.div>
   );
 }
