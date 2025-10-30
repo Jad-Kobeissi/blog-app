@@ -4,7 +4,7 @@ export default function Loading({ className }: { className?: string }) {
     <motion.div className={`text-[1.5rem] ${className} text-center`}>
       <motion.h1
         animate={{ scale: [0.9, 1, 0.9] }}
-        transition={{ duration: 0.3, repeat: Infinity, repeatType: "loop" }}
+        transition={{ duration: 0.4, repeat: Infinity, repeatType: "loop" }}
       >
         Loading...
       </motion.h1>
